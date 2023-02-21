@@ -47,11 +47,22 @@
   .limob,
   .logo {
     padding: 3px 0;
-    font-size: 80px;
+    margin: 0;
+  }
+  .mob-ul{
+    margin: 0;
+    padding: 0;
+  }
+  .limob{
+ 
+    font-size: 10px;
+    padding: 0;
     margin: 0;
   }
   .linknav {
-    font-size: 15px;
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
   }
   /* Footercomponent */
   .footer-social-icon {
@@ -171,4 +182,7 @@
     font-size: 18px;
     margin: 20px auto;
   }
+ .cardbox{
+  max-height: 500px;
+ }
 }
