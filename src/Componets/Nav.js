@@ -8,7 +8,6 @@ import HomeIcon from "@mui/icons-material/Home";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import LensIcon from "@mui/icons-material/Lens";
 
-
 const Nav = () => {
   const { cartTotalQuantity } = useSelector((state) => state.cart);
   return (
@@ -17,7 +16,6 @@ const Nav = () => {
         <Link to="/">
           <img src={logo} alt="logo" className="logo " />
         </Link>
-
         <li className="nav-item limob">
           <Link to="/" className="nav-link linknav" aria-current="page">
             <IconButton>
@@ -26,7 +24,6 @@ const Nav = () => {
             Home
           </Link>
         </li>
-
         <li className="nav-item limob1">
           <Link to="shop" className="nav-link linknav">
             <IconButton>
@@ -56,7 +53,6 @@ const Nav = () => {
             <IconButton>
               <ShoppingCartIcon color="info" size="small" />
             </IconButton>
-
             <span className="bag-qoantity">
               <span>{cartTotalQuantity}</span>
             </span>

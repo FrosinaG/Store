@@ -35,6 +35,17 @@ app.get("/users/:id", (req, res) => {
   const foundProducts = users.find((user) => user.id == id);
   res.send(foundUser);
 });
+app.post("/users/login", (req, res) => {
+  const { username, password } = req.query;
+  const foundUser = users.find(
+    (user) => user.username == username && user.password == password
+  );
+  if (foundUser) {
+    res.send(foundUser);
+  } else {
+    throw new Error("User not found");
+  }
+});
 app.delete("/products/:id", (req, res) => {
   const { id } = req.params;
   products = products.filter((product) => product.id !== id);

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {  Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import {
   addToCart,
@@ -9,7 +9,6 @@ import {
   removeFromCart,
   getTotals,
 } from "../Redux/cartSlice";
-
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -37,11 +36,10 @@ const Cart = () => {
   };
   return (
     <div className="cart-container">
-      <Typography variant="h3" >Shopping Cart</Typography>
+      <Typography variant="h3">Shopping Cart</Typography>
       {cart.cartItems.length === 0 ? (
         <div className="cart-empty">
           <Typography variant="body1">Your Cart Is Empty</Typography>
-
           <div className="start-shopping">
             <Link to="/shop" className="start-shopping">
               {" "}
@@ -65,13 +63,12 @@ const Cart = () => {
       ) : (
         <>
           <div className="titles">
-                   <div className="cart-items">
+            <div className="cart-items">
               {cart.cartItems?.map((cartItems) => (
                 <div className="allofCart" key={cartItems.id}>
                   <div className="cart-item">
                     <div className="cart-product">
                       <div className="cart-thumbnail part1">
-                        
                         <img
                           src={cartItems.images}
                           alt={cartItems.name}
@@ -80,10 +77,8 @@ const Cart = () => {
                       </div>
                       <div className="text part1">
                         <h3 className="h-cart">Product</h3>
-
                         <h2>{cartItems.name}</h2>
                         <p className="card-text">
-                       
                           <b>Description :</b> {cartItems.description}
                         </p>
                         <p>
@@ -142,7 +137,6 @@ const Cart = () => {
                       </div>
                       <div className="Cart-quantity part1">
                         <h3 className="h-cart">Price</h3>
-
                         <div className="product-price ">
                           <p className="price1 price ">${cartItems.price}</p>
                         </div>
@@ -167,7 +161,6 @@ const Cart = () => {
                           </button>
                         </div>
                       </div>
-
                       <div className="cart-total-price part1">
                         <h3 className="h-cart">Total</h3>
                         <p className="totalprice price ">
@@ -194,6 +187,7 @@ const Cart = () => {
                   className=" btn btn-primary"
                   onClick={() => handleClearCart()}
                 >
+                  {" "}
                   Clear cart
                 </button>
               </div>
@@ -223,7 +217,6 @@ const Cart = () => {
           </div>
         </>
       )}
-
       <button className=" btn btn-primary logout-btn" onClick={logout}>
         Log out
       </button>

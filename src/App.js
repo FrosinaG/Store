@@ -28,8 +28,9 @@ const App = () => {
           <Route path="/" element={<Home />}></Route>
           <Route path="*" element={<NotFound />}></Route>
           <Route path="singelproduct/:id" element={<SingleProducts />} />
-          <Route element={<PrivareRoure />}> </Route>
-            <Route path="cart" element={<Cart />} />
+          <Route element={<PrivareRoure />}>
+            <Route path="cart" element={<Cart />} />{" "}
+          </Route>
           <Route path="shop" element={<Shop />} />
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Login />} />
