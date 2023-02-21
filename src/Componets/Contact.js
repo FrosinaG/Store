@@ -33,7 +33,6 @@ export const Contact = () => {
               type="text"
               className="form-control"
               name="text"
-              id="exampleFormControlInput1"
               placeholder="Enter Your Name"
               required
             />
@@ -60,7 +59,6 @@ export const Contact = () => {
               type="email"
               name="email"
               className="form-control"
-              id="exampleFormControlInput1"
               placeholder=" Enter Your Email"
               required
             />
@@ -84,7 +82,6 @@ export const Contact = () => {
             <textarea
               className="form-control"
               name="message"
-              id="exampleFormControlTextarea1"
               rows="10"
               placeholder="Your Messages"
               required

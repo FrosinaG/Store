@@ -1,25 +1,25 @@
 import { Link, useNavigate } from "react-router-dom";
-import { productsApi, useGetAllProductsQuery } from "../Redux/productApi";
-import { useDispatch } from "react-redux";
+import { useGetAllProductsQuery } from "../Redux/productApi";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../Redux/cartSlice";
-import { SearchProduct } from "../Redux/cartSlice";
+import { SearchProduct } from "../Redux/productsSliece";
 import { Box, Card, CardContent, CardMedia } from "@mui/material";
 import { Typography } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Shop = () => {
-  const { data, error, isLoading } = useGetAllProductsQuery();
+  const { filteredItms } = useSelector((state) => state.products);
+  const { error, isLoading } = useGetAllProductsQuery();
 
-  const dispetch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const hendleAddTocart = (products) => {
-    dispetch(addToCart(products));
+    dispatch(addToCart(products));
     navigate("/cart");
   };
-  const hendleSearchProduct = (products) => {
-    dispetch(SearchProduct(products));
-;
+  const handleSearchProduct = word => {
+    dispatch(SearchProduct(word));
   };
 
   return (
@@ -48,14 +48,14 @@ const Shop = () => {
                 type="text"
                 className="search-in"
                 placeholder="Search...."
-                onChange={(e) => hendleSearchProduct()}
+                onChange={(e) => handleSearchProduct(e.target.value)}
               />
             </div>
           </div>
 
           <div className="row row-cols-1 row-cols-md-2 g-4 allcard">
-            {data.map((products) => {
-              return (<>
+            {filteredItms.map((products) => {
+              return (
                 <div className="card cardbox" key={products.id}>
                   <Box width="100%">
                     <Card className="cartIn">
@@ -98,7 +98,7 @@ const Shop = () => {
                       </button>
                     </div>
                   </Box>
-                </div></>
+                </div>
               );
             })}
           </div>

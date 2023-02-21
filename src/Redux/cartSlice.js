@@ -36,12 +36,6 @@ const cartSlice = createSlice({
       );
       state.cartItems = nextCartItems;
     },
-    SearchProduct(state, action) {
-      const nextCartItems = state.cartItems.filter((cartItems) =>
-        cartItems.name.toLowerCase().includes(cartItems)
-      );
-      state.cartItems = nextCartItems;
-    },
     decreaseCart(state, action) {
       const itemIndex = state.cartItems.findIndex(
         (cartItems) => cartItems.id === action.payload.id
@@ -93,6 +87,5 @@ export const {
   decreaseCart,
   clearCart,
   getTotals,
-  SearchProduct,
 } = cartSlice.actions;
 export default cartSlice.reducer;

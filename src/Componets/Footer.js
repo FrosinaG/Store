@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
         <div className="social-icon-f">
           <a
-            href="https://www.linkedin.com/in/frosina-gagovski-82b487251/"
+            href="https://www.linkedin.com"
             className="social-link"
           >
             <svg

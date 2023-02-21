@@ -2,12 +2,13 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
+import { toast } from "react-toastify";
 import SendIcon from "@mui/icons-material/Send";
 import { Button } from "@mui/material";
 
 const Login = () => {
   const [username, setUsername] = useState();
-  const [password, setPasword] = useState();
+  const [password, setPassword] = useState();
 
   let navigate = useNavigate();
 
@@ -15,22 +16,23 @@ const Login = () => {
     setUsername(e.target.value);
   };
   const pass = (e) => {
-    setPasword(e.target.value);
+    setPassword(e.target.value);
   };
   const apiCall = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/users/login ", {
-        username: username,
-        password: password,
+      .post("http://localhost:5000/users/login", null, {
+        params: {
+          username,
+          password,
+        }
       })
-      .then((respons) => {
-        console.log(respons.data);
-        localStorage.setItem("token", JSON.stringify(respons.data.token));
+      .then((response) => {
+        localStorage.setItem("token", JSON.stringify(response.data.token));
         navigate("/cart");
       })
       .catch((error) => {
-        console.log("error", error);
+        toast.error("User not found");
       });
   };
   return (
@@ -38,28 +40,24 @@ const Login = () => {
       <div className="loginfrom">
         <Typography variant="h2">Login</Typography>
         <h2 className="grey">Welcome back! Please login to your account.</h2>
-        <form onSubmit={apiCall} className="forma">
+        <form onSubmit={apiCall} className="form">
           <div className="mb-3">
-            <label className="form-label label1">Username</label>
-            <Typography variant="body2">Default user :</Typography>
-
+            <label className="form-label">Username</label>
+            <Typography variant="body2">Default user : user1</Typography>
             <input
               type="text"
               className="form-control"
               aria-describedby="emailHelp"
-              // value={username}
               onChange={user}
             />
             <div id="emailHelp" className="form-text"></div>
           </div>
           <div className="mb-3">
-            <label className="form-label label1">Password</label>
-            <Typography variant="body2">Default password:</Typography>
-
+            <label className="form-label">Password</label>
+            <Typography variant="body2">Default password:12345</Typography>
             <input
               type="password"
               className="form-control"
-              // value={password}
               onChange={pass}
             />
           </div>
@@ -67,12 +65,11 @@ const Login = () => {
             <input
               type="checkbox"
               className="form-check-input"
-              id="exampleCheck1"
             />
-            <label className="form-check-label label1">Check me out</label>
+            <label className="form-check-label">Check me out</label>
           </div>
-          <Button variant="contained" startIcon={<SendIcon />}>
-            Submit
+          <Button variant="contained" startIcon={<SendIcon />}
+          type="submit" value="Login" > SUBMIT
           </Button>
         </form>{" "}
       </div>
@@ -81,3 +78,4 @@ const Login = () => {
 };
 
 export default Login;
+

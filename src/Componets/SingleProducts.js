@@ -32,11 +32,9 @@ const SingleProducts = ({ article }) => {
         {" "}
         <div className="text part">
           <Typography variant="h3">{product.name}</Typography>
-
           <Typography variant="body2">
             <b>Description :</b> {product.description}
           </Typography>
-
           <IconButton>
             <StarBorderIcon size="small" />
           </IconButton>
