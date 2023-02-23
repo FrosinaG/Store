@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import StarRateIcon from "@mui/icons-material/StarRate";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { Link, useNavigate } from "react-router-dom";
 import {
   addToCart,
@@ -35,27 +38,14 @@ const Cart = () => {
     dispatch(clearCart());
   };
   return (
-    <div className="cart-container">
+    <div className="cartContainer">
       <Typography variant="h3">Shopping Cart</Typography>
       {cart.cartItems.length === 0 ? (
-        <div className="cart-empty">
+        <div className="cartEmpty">
           <Typography variant="body1">Your Cart Is Empty</Typography>
           <div className="start-shopping">
             <Link to="/shop" className="start-shopping">
-              {" "}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                className="bi bi-arrow-left-circle"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
-                />
-              </svg>
+              <ArrowBackIcon />
               <span>Start Shopping</span>
             </Link>
           </div>
@@ -65,7 +55,7 @@ const Cart = () => {
           <div className="titles">
             <div className="cart-items">
               {cart.cartItems?.map((cartItems) => (
-                <div className="allofCart" key={cartItems.id}>
+                <div className="allOfCart" key={cartItems.id}>
                   <div className="cart-item">
                     <div className="cart-product">
                       <div className="cart-thumbnail part1">
@@ -82,88 +72,43 @@ const Cart = () => {
                           <b>Description :</b> {cartItems.description}
                         </p>
                         <p>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-star-fill stars"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                          </svg>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-star-fill stars"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                          </svg>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-star-fill stars"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                          </svg>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-star-fill stars"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                          </svg>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-star-fill stars"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                          </svg>
+                          <StarRateIcon />
+                          <StarRateIcon />
+                          <StarRateIcon />
+                          <StarRateIcon />
+                          <StarRateIcon />
                           {cartItems.rating}
                         </p>
                       </div>
-                      <div className="Cart-quantity part1">
+                      <div className=" part1">
                         <h3 className="h-cart">Price</h3>
                         <div className="product-price ">
                           <p className="price1 price ">${cartItems.price}</p>
                         </div>
                       </div>
-                      <div className="Cart-quantity part1">
+                      <div className="part1">
                         <h3 className="h-cart">Quantity</h3>
                         <div className="buttonQ">
-                          <button
+                          <span
                             onClick={() => handleDecreaseCart(cartItems)}
                             className="btn btn-outline-secondary"
                           >
                             -
-                          </button>
+                          </span>
                           <div className="cart-qua">
                             {cartItems.cartQuantity}
                           </div>
-                          <button
+                          <span
                             onClick={() => handleIncreaseCart(cartItems)}
                             className="btn btn-outline-secondary"
                           >
                             +
-                          </button>
+                          </span>
                         </div>
                       </div>
                       <div className="cart-total-price part1">
                         <h3 className="h-cart">Total</h3>
-                        <p className="totalprice price ">
+                        <p className="totalPrice price ">
                           ${cartItems.price * cartItems.cartQuantity}
                         </p>
                       </div>
@@ -171,55 +116,34 @@ const Cart = () => {
                   </div>{" "}
                   <div className="remove-btn">
                     {" "}
-                    <button
-                      className="btn btn-outline-secondary"
-                      onClick={() => HandleRemoveFromCart(cartItems)}
-                    >
+                    <Button onClick={() => HandleRemoveFromCart(cartItems)}>
                       Remove
-                    </button>
+                    </Button>
                   </div>
                 </div>
               ))}
             </div>
             <div className="end-cart">
               <div className="  cart-summary">
-                <button
-                  className=" btn btn-primary"
-                  onClick={() => handleClearCart()}
-                >
-                  {" "}
+                <Button variant="contained" onClick={() => handleClearCart()}>
+                  <DeleteForeverIcon />
                   Clear cart
-                </button>
-              </div>
-              <div className="continue-shopping">
+                </Button>
                 <Link to="/shop" className="start-shopping">
-                  {" "}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="currentColor"
-                    className="bi bi-arrow-left-circle"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
-                    />
-                  </svg>
+                  <ArrowBackIcon />
                   <span>Continue Shopping</span>
                 </Link>
               </div>
-              <div className="totalend">
+              <div className="totalEnd">
                 <span> Total ${cart.cartTotalAmount}</span>
               </div>
             </div>
           </div>
         </>
       )}
-      <button className=" btn btn-primary logout-btn" onClick={logout}>
+      <Button className=" logout-btn" onClick={logout} variant="contained">
         Log out
-      </button>
+      </Button>
     </div>
   );
 };

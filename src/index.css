@@ -5,9 +5,9 @@
     box-sizing: border-box;
   }
   /* Homecomponent */
-  .home-cont,
-  .login-cont,
-  .contact-cont,
+  .homeCont,
+  .loginCont,
+  .contactCont,
   .single-con {
     background-image: url(../src/Images/pexels-karolina-grabowska-4862892.jpg);
     background-repeat: no-repeat;
@@ -44,29 +44,36 @@
     margin: 0;
     padding: 0;
   }
-  .limob,
-  .logo {
-    padding: 3px 0;
-    margin: 0;
+
+  .liMob {
+    padding: 2px;
+    margin: 0px auto;
+    text-align: center;
   }
-  .mob-ul{
+  .liMob1 {
+    align-items: center;
+  }
+  .mob-ul {
     margin: 0;
     padding: 0;
   }
-  .limob{
- 
+  .mob-ul {
+    display: block;
+    text-align: center;
+  }
+  .limob {
     font-size: 10px;
     padding: 0;
     margin: 0;
   }
-  .linknav {
-    font-size: 10px;
+  .linkNav {
+    font-size: 15px;
     padding: 0;
     margin: 0;
   }
   /* Footercomponent */
   .footer-social-icon {
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
     align-items: center;
   }
@@ -81,7 +88,7 @@
     text-align: center;
   }
   /* Shopcomponet */
-  .allcard {
+  .allCard {
     display: block;
     width: 100%;
     margin: 10px auto;
@@ -120,7 +127,7 @@
     font-size: 20px;
     margin: 10px auto;
   }
-  .contactform {
+  .contactForm {
     width: 80%;
     padding: 10px;
     margin: 0 auto;
@@ -131,7 +138,7 @@
     margin: 0 auto;
   }
   /* Logincomponent */
-  .loginform {
+  .loginForm {
     margin-top: 100px;
     padding: 20px;
   }
@@ -151,7 +158,7 @@
     margin: 0 auto;
   }
   /* Cartcomponent */
-  .allofCart {
+  .allOfCart {
     display: block;
   }
   .cart-item {
@@ -182,7 +189,7 @@
     font-size: 18px;
     margin: 20px auto;
   }
- .cardbox{
-  max-height: 500px;
- }
+  .cardbox {
+    max-height: 500px;
+  }
 }
