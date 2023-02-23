@@ -44,7 +44,7 @@ const Login = () => {
           Login <LockOpenIcon />
         </Typography>
         <h2 className="grey">Welcome back! Please login to your account.</h2>
-        <form onSubmit={apiCall} className="form">
+        <form onSubmit={apiCall} className="forma">
           <div className="mb-3">
             <label className="form-label">Username</label>
             <Typography variant="body2">Default user : user1</Typography>

@@ -65,7 +65,7 @@ const Cart = () => {
                           className="img-thum"
                         />
                       </div>
-                      <div className="text part1">
+                      <div className=" part1">
                         <h3 className="h-cart">Product</h3>
                         <h2>{cartItems.name}</h2>
                         <p className="card-text">
