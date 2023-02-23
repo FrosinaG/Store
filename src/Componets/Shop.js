@@ -3,7 +3,7 @@ import { useGetAllProductsQuery } from "../Redux/productApi";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../Redux/cartSlice";
 import { SearchProduct } from "../Redux/productsSliece";
-import { Box, Card, CardContent, CardMedia } from "@mui/material";
+import { Box, Button, Card, CardContent, CardMedia } from "@mui/material";
 import { Typography } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
@@ -18,7 +18,7 @@ const Shop = () => {
     dispatch(addToCart(products));
     navigate("/cart");
   };
-  const handleSearchProduct = word => {
+  const handleSearchProduct = (word) => {
     dispatch(SearchProduct(word));
   };
 
@@ -52,8 +52,7 @@ const Shop = () => {
               />
             </div>
           </div>
-
-          <div className="row row-cols-1 row-cols-md-2 g-4 allcard">
+          <div className="row row-cols-1 row-cols-md-2 g-4 allCard">
             {filteredItms.map((products) => {
               return (
                 <div className="card cardbox" key={products.id}>
@@ -63,7 +62,7 @@ const Shop = () => {
                         <CardMedia className="imgProduct">
                           <img
                             src={products.images}
-                            className="card-img-top productsimg"
+                            className="card-img-top productsImg"
                             alt={products.name}
                           />
                         </CardMedia>
@@ -88,14 +87,15 @@ const Shop = () => {
                       </CardContent>
                     </Card>
                     <div className="btnAdd">
-                      <button
+                      <Button
+                        variant="contained"
                         onClick={() => hendleAddTocart(products)}
                         type="button"
-                        className="btn btn-primary addto"
+                        className="btn btn-primary addTo"
                       >
                         <ShoppingCartIcon size="large" />
                         Add To Cart
-                      </button>
+                      </Button>
                     </div>
                   </Box>
                 </div>

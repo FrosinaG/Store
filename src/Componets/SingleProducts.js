@@ -6,7 +6,6 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import SettingsBackupRestoreIcon from "@mui/icons-material/SettingsBackupRestore";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import { IconButton } from "@mui/material";
 import { Typography } from "@mui/material";
 
 const SingleProducts = ({ article }) => {
@@ -24,38 +23,26 @@ const SingleProducts = ({ article }) => {
         console.log("exception");
       });
   }, [id]);
-
   if (!product) return null;
   return (
     <div key={product.id} className="single-con">
       <div className="singlebox">
-        {" "}
         <div className="text part">
           <Typography variant="h3">{product.name}</Typography>
           <Typography variant="body2">
             <b>Description :</b> {product.description}
           </Typography>
-          <IconButton>
-            <StarBorderIcon size="small" />
-          </IconButton>
-          <IconButton>
-            <StarBorderIcon size="small" />
-          </IconButton>
-          <IconButton>
-            <StarBorderIcon size="small" />
-          </IconButton>
-          <IconButton>
-            <StarBorderIcon size="small" />
-          </IconButton>
-          <IconButton>
-            <StarBorderIcon size="small" />
-          </IconButton>
+
+          <StarBorderIcon size="small" />
+          <StarBorderIcon size="small" />
+          <StarBorderIcon size="small" />
+          <StarBorderIcon size="small" />
+          <StarBorderIcon size="small" />
           <Typography variant="body2">
             <b> {product.rating}</b>{" "}
           </Typography>
         </div>
         <div className="part-img">
-          {" "}
           <img
             src={product.images}
             className="card-img-top productsimg singT"
@@ -66,7 +53,6 @@ const SingleProducts = ({ article }) => {
       <div className="btnSingleProduct">
         <Stack spacing={2} direction="row">
           <Button variant="contained" startIcon={<SettingsBackupRestoreIcon />}>
-            {" "}
             <Link to={"/shop"} className="link-btn">
               Back
             </Link>{" "}
@@ -75,7 +61,6 @@ const SingleProducts = ({ article }) => {
             variant="contained"
             startIcon={<KeyboardDoubleArrowLeftIcon />}
           >
-            {" "}
             <Link
               to={`/singelproduct/${parseInt(id) - 1}`}
               className="link-btn"
@@ -87,17 +72,15 @@ const SingleProducts = ({ article }) => {
             variant="contained"
             endIcon={<KeyboardDoubleArrowRightIcon />}
           >
-            {" "}
             <Link
               to={`/singelproduct/${parseInt(id) + 1}`}
               className="link-btn"
             >
-              {" "}
               Next
-            </Link>{" "}
+            </Link>
           </Button>
         </Stack>
-      </div>{" "}
+      </div>
     </div>
   );
 };
