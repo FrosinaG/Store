@@ -105,12 +105,16 @@
     width: 100%;
   }
   /* SingleProductcomponent */
-  .singlebox {
+  .singleBox {
     display: block;
+    margin: 10px auto;
     padding: 20px;
+    text-align: center;
   }
-  .part {
+  .textBox {
     width: 80%;
+    margin: 20px auto;
+    text-align: center;
   }
   .box {
     display: block;
@@ -128,7 +132,7 @@
     margin: 10px auto;
   }
   .contactForm {
-    width: 80%;
+    width: 90%;
     padding: 10px;
     margin: 0 auto;
   }
@@ -138,8 +142,9 @@
     margin: 0 auto;
   }
   /* Logincomponent */
-  .loginForm {
+  .loginFrom{
     margin-top: 100px;
+    width: 100%;
     padding: 20px;
   }
   .login-cont {
@@ -148,9 +153,9 @@
     margin: 0;
   }
   .forma {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
-    padding: 100px 5px;
+    padding: 50px 5px;
     align-items: center;
   }
   .mb-3 {
@@ -169,20 +174,21 @@
   }
   .part1 {
     width: 90%;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 0;
   }
   .remove-btn {
-    width: 20%;
-    margin: auto;
+    width: 30%;
+    margin: 0 auto;
     padding: 20px 10px;
   }
   .logout-btn {
     align-items: center;
   }
-  .cart-empty {
+  .cartEmpty {
     width: 90%;
     margin: 10px auto;
+    text-align: center;
   }
   .start-shopping {
     width: 100%;
@@ -191,5 +197,10 @@
   }
   .cardbox {
     max-height: 500px;
+  }
+  .btnSingleProduct {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
   }
 }

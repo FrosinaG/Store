@@ -63,7 +63,7 @@ h2 {
   font-variant-caps: all-petite-caps;
   font-weight: 400;
 }
-.singlebox {
+.singleBox {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -79,7 +79,7 @@ h2 {
   width: 60%;
   margin: 0 auto;
 }
-text {
+textBox {
   text-align: left;
 }
 /* ShopCopomponet */
