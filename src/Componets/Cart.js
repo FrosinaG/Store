@@ -124,7 +124,7 @@ const Cart = () => {
               ))}
             </div>
             <div className="end-cart">
-              <div className="  cart-summary">
+              <div className="cart-summary">
                 <Button variant="contained" onClick={() => handleClearCart()}>
                   <DeleteForeverIcon />
                   Clear cart

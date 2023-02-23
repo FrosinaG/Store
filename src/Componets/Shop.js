@@ -37,7 +37,7 @@ const Shop = () => {
         <p>An error occured...</p>
       ) : (
         <div>
-          <div className="hedershop">
+          <div className="hederShop">
             <Typography variant="h4">
               If shopping doesn't make you happy, then you're in the wrong shop.
             </Typography>
@@ -55,7 +55,7 @@ const Shop = () => {
           <div className="row row-cols-1 row-cols-md-2 g-4 allCard">
             {filteredItms.map((products) => {
               return (
-                <div className="card cardbox" key={products.id}>
+                <div className="card cartBox" key={products.id}>
                   <Box width="100%">
                     <Card className="cartIn">
                       <div className="img-price">

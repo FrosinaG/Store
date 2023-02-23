@@ -25,7 +25,7 @@ const SingleProducts = ({ article }) => {
   }, [id]);
   if (!product) return null;
   return (
-    <div key={product.id} className="single-con">
+    <div key={product.id} className="singleCont">
       <div className="singleBox">
         <div className="textBox part">
           <Typography variant="h3">{product.name}</Typography>

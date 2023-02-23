@@ -7,7 +7,7 @@
 .homeCont,
 .loginCont,
 .contactCont,
-.single-con {
+.singleCont {
   background-image: url(../src/Images/pexels-karolina-grabowska-4862892.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -38,8 +38,11 @@ h2 {
   margin: 10px;
   padding: 5px 25px;
   width: 40%;
-
   margin: 10px auto;
+}
+.part{
+  width: 50%;
+  margin: 0 auto;
 }
 .link-btn {
   text-decoration: none;
@@ -71,7 +74,7 @@ h2 {
 }
 .singT {
   width: 100%;
-  min-height: 300px;
+  max-height: 300px;
 }
 /* HomeComponent */
 .header {
@@ -83,7 +86,7 @@ textBox {
   text-align: left;
 }
 /* ShopCopomponet */
-.hedershop {
+.hederShop {
   width: 60%;
   margin: 23px auto;
   text-align: center;
@@ -93,14 +96,16 @@ textBox {
   font-weight: 400;
   color: rgb(86, 84, 84);
 }
-form {
-  text-align: left;
-}
+
 .contactForm {
   width: 60%;
   margin: 0 auto;
-}
 
+}
+.mb-3 {
+
+  text-align: left;
+}
 .part1 {
   width: 30%;
   text-align: left;
@@ -108,6 +113,7 @@ form {
   font-size: 20px;
   margin: 5px;
 }
+
 .box {
   display: inline;
   margin: 50px 0;
@@ -167,7 +173,7 @@ li {
   min-height: 500px;
 }
 /* Cartcomponent */
-.cardbox {
+.cartBox {
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -176,7 +182,7 @@ li {
   font-size: 12px;
   max-height: 400px;
 }
-.cardbox:hover {
+.cartBox:hover {
   box-shadow: 0px 10px 10px rgba(50, 82, 179, 0.5);
 }
 .allCard {
@@ -200,9 +206,7 @@ li {
   margin: 10px auto;
   text-align: center;
 }
-.img-thum {
-  width: 100%;
-}
+
 .buttonQ {
   display: flex;
   justify-content: space-between;
@@ -211,6 +215,9 @@ li {
 }
 .card-text {
   font-size: 12px;
+}
+.img-thum{
+  width: 100%;
 }
 .remove-btn {
   align-items: center;
