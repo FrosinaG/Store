@@ -40,7 +40,7 @@ h2 {
   width: 40%;
   margin: 10px auto;
 }
-.part{
+.part {
   width: 50%;
   margin: 0 auto;
 }
@@ -53,13 +53,7 @@ h2 {
   width: 100%;
   margin: 0 auto;
 }
-.price {
-  color: red;
-  font-size: 18px;
-}
-.stars {
-  color: yellow;
-}
+
 .category {
   font-size: 20px;
   color: rgb(86, 84, 84);
@@ -100,10 +94,8 @@ textBox {
 .contactForm {
   width: 60%;
   margin: 0 auto;
-
 }
 .mb-3 {
-
   text-align: left;
 }
 .part1 {
@@ -216,7 +208,7 @@ li {
 .card-text {
   font-size: 12px;
 }
-.img-thum{
+.img-thum {
   width: 100%;
 }
 .remove-btn {
