@@ -113,9 +113,8 @@ const Cart = () => {
                         </p>
                       </div>
                     </div>
-                  </div>{" "}
+                  </div>
                   <div className="remove-btn">
-                    {" "}
                     <Button onClick={() => HandleRemoveFromCart(cartItems)}>
                       Remove
                     </Button>

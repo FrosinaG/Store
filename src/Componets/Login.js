@@ -71,10 +71,9 @@ const Login = () => {
             type="submit"
             value="Login"
           >
-            {" "}
             SUBMIT
           </Button>
-        </form>{" "}
+        </form>
       </div>
     </div>
   );
