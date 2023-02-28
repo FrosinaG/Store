@@ -7,7 +7,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 
 const Nav = () => {
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  // const { cartTotalQuantity } = useSelector((state) => state.cart);
   return (
     <div className="navCont nav-mob">
       <ul className="nav justify-content-center mob-ul">
@@ -40,7 +40,7 @@ const Nav = () => {
             <ShoppingCartIcon color="whitе" size="small" />
 
             <span className="bag-qoantity">
-              <span>{cartTotalQuantity}</span>
+              {/* <span>{cartTotalQuantity}</span> */}
             </span>
           </Link>
         </li>

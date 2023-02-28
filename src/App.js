@@ -14,14 +14,12 @@ import NotFound from "./Componets/NotFound";
 import Shop from "./Componets/Shop";
 import Cart from "./Componets/Cart";
 import { ToastContainer } from "react-toastify";
-import { Provider } from "react-redux";
-import store from "./Redux/store";
 import PrivareRoure from "./Componets/PrivareRoure";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Provider store={store}>
+ 
         <ToastContainer />
         <Nav />
         <Routes>
@@ -37,7 +35,7 @@ const App = () => {
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
         <Footer />
-      </Provider>
+
     </BrowserRouter>
   );
 };
