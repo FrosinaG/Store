@@ -7,22 +7,12 @@ import SendIcon from "@mui/icons-material/Send";
 import { Button } from "@mui/material";
 
 import LockOpenIcon from "@mui/icons-material/LockOpen";
-import { login } from "../sagas";
-import { useDispatch } from "react-redux";
-import { LOGIN } from "../actions/actionTypes";
 
 const Login = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
   let navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const login = (e) => {
-    e.preventDefault();
-    dispatch({ type: LOGIN, username, password, navigate });
-    // navigate("/contact");
-  };
 
   const user = (e) => {
     setUsername(e.target.value);
@@ -30,7 +20,23 @@ const Login = () => {
   const pass = (e) => {
     setPassword(e.target.value);
   };
-
+  const apiCall = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:5000/users/login", null, {
+        params: {
+          username,
+          password,
+        },
+      })
+      .then((response) => {
+        localStorage.setItem("token", JSON.stringify(response.data.token));
+        navigate("/cart");
+      })
+      .catch((error) => {
+        toast.error("User not found");
+      });
+  };
   return (
     <div className="loginCont">
       <div className="loginFrom">
@@ -38,7 +44,7 @@ const Login = () => {
           Login <LockOpenIcon />
         </Typography>
         <h2 className="grey">Welcome back! Please login to your account.</h2>
-        <form onSubmit={login} className="forma">
+        <form onSubmit={apiCall} className="forma">
           <div className="mb-3">
             <label className="form-label">Username</label>
             <Typography variant="body2">Default user : user1</Typography>
