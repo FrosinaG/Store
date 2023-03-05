@@ -13,6 +13,8 @@ import NotFound from "./Componets/NotFound";
 import Shop from "./Componets/Shop";
 import Cart from "./Componets/Cart";
 import { ToastContainer } from "react-toastify";
+import SingleProducts from "./Componets/SingleProducts";
+import PrivateRoute from "./Componets/PrivateRoute";
 
 const App = () => {
   return (
@@ -23,7 +25,10 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="*" element={<NotFound />}></Route>
         <Route path="cart" element={<Cart />} />
+        <Route element={<PrivateRoute />}> </Route>
+        <Route path="singleproduct/:id" element={<SingleProducts />} />
         <Route path="shop" element={<Shop />} />
+        <Route path="singleproduct/:id" element={<SingleProducts />} />
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />
         <Route path="*" element={<NotFound />}></Route>

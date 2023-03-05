@@ -2,13 +2,14 @@ import {
   SET_PRODUCTS,
   GET_PRODUCTS,
   SEARCH_PRODUCT,
+  SET_SINGLE_PRODUCT,
 } from "../actions/actionTypes";
 
 const initialState = {
   products: [],
   filteredProducts: [],
+  singleProduct: {},
 };
-
 export const productsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_PRODUCTS:
@@ -27,6 +28,12 @@ export const productsReducer = (state = initialState, action) => {
         ...state,
         filteredProducts: state.filteredProducts,
       };
+    case SET_SINGLE_PRODUCT:
+      return {
+        ...state,
+        singleProduct: action.product,
+      };
+
     default:
       return state;
   }

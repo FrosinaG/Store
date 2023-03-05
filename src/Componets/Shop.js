@@ -4,7 +4,7 @@ import { Box, Button, Card, CardContent, CardMedia } from "@mui/material";
 import { Typography } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useEffect } from "react";
-import { ADD_TO_CART, PRODUCTS, SEARCH_PRODUCT } from "../actions/actionTypes";
+import { addToCart, productsFetch, searchProduct } from "../actions";
 
 const Shop = () => {
   const filteredProducts = useSelector(
@@ -15,15 +15,15 @@ const Shop = () => {
   const navigate = useNavigate();
 
   const hendleAddToCart = (product) => {
-    dispatch({ type: ADD_TO_CART, product });
+    dispatch(addToCart(product));
     navigate("/cart");
   };
   useEffect(() => {
-    dispatch({ type: PRODUCTS });
-  }, [dispatch]);
+    dispatch(productsFetch());
+  });
 
   const handleSearchProduct = (word) => {
-    dispatch({ type: SEARCH_PRODUCT, word });
+    dispatch(searchProduct(word));
   };
 
   return (
@@ -70,7 +70,7 @@ const Shop = () => {
                       </Typography>
                       <Typography variant="body2">
                         <Link
-                          to={`/singelproduct/${product.id}`}
+                          to={`/singleproduct/${product.id}`}
                           className="card-link"
                         >
                           View more
