@@ -15,7 +15,8 @@ const Nav = () => {
     dispatch({ type: SET_LOGOUT });
   };
 
-  const  {cartTotalQuantity } = useSelector((state) => state.cartReducer.carts);
+  const { cartTotalQuantity } = useSelector((state) => state.cartReducer.carts);
+  
   return (
     <div className="navCont nav-mob">
       <ul className="nav justify-content-center mob-ul">

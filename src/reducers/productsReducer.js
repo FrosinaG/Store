@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   products: [],
-  filteredProducts: []
+  filteredProducts: [],
 };
 
 export const productsReducer = (state = initialState, action) => {
@@ -16,20 +16,20 @@ export const productsReducer = (state = initialState, action) => {
         ...state,
         products: action.products,
         filteredProducts: action.products,
-      }
+      };
     case GET_PRODUCTS:
       return state.products;
     case SEARCH_PRODUCT:
-      state.filteredProducts = state.products.filter(product =>
+      state.filteredProducts = state.products.filter((product) =>
         product.name.toLowerCase().includes(action.word)
       );
       return {
         ...state,
-        filteredProducts: state.filteredProducts
+        filteredProducts: state.filteredProducts,
       };
     default:
       return state;
   }
-}
+};
 
 export default productsReducer;

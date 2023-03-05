@@ -2,14 +2,15 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CARD,
   EMPTY_CART,
-  GET_TOTAL_CART, DECREASE_CART,
+  GET_TOTAL_CART,
+  DECREASE_CART,
 } from "../actions/actionTypes";
 import { toast } from "react-toastify";
 
 const initialState = {
   carts: localStorage.getItem("carts")
-      ? JSON.parse(localStorage.getItem("carts"))
-      : [],
+    ? JSON.parse(localStorage.getItem("carts"))
+    : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
 };
@@ -18,7 +19,7 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       const itemIndex = state.carts.findIndex(
-          (item) => item.id === action.product.id
+        (item) => item.id === action.product.id
       );
       if (itemIndex >= 0) {
         state.carts[itemIndex].cartQuantity += 1;
@@ -34,21 +35,21 @@ export const cartReducer = (state = initialState, action) => {
       }
       localStorage.setItem("carts", JSON.stringify(state.carts));
       return {
-        ...state
-      }
+        ...state,
+      };
     case REMOVE_FROM_CARD:
       const cartsUpdated = state.carts.filter(
-          (carts) => carts.id !== action.product.id
+        (carts) => carts.id !== action.product.id
       );
       localStorage.setItem("carts", JSON.stringify(cartsUpdated));
       return {
         ...state,
-        carts: cartsUpdated
+        carts: cartsUpdated,
       };
     case DECREASE_CART:
-      let updatedCarts = state.carts
+      let updatedCarts = state.carts;
       let cartIndex = state.carts.findIndex(
-          (cartItems) => cartItems.id === action.product.id
+        (cartItems) => cartItems.id === action.product.id
       );
       if (state.carts[cartIndex].cartQuantity > 1) {
         updatedCarts[cartIndex].cartQuantity -= 1;
@@ -58,7 +59,7 @@ export const cartReducer = (state = initialState, action) => {
         });
       } else if (state.carts[cartIndex].cartQuantity === 1) {
         updatedCarts = state.carts.filter(
-            (cartItems) => cartItems.id !== action.product.id
+          (cartItems) => cartItems.id !== action.product.id
         );
         toast.error(`${action.product.title} remove from cart`, {
           positon: "bottom-left",
@@ -67,36 +68,36 @@ export const cartReducer = (state = initialState, action) => {
       localStorage.setItem("carts", JSON.stringify(updatedCarts));
       return {
         ...state,
-        carts: updatedCarts
+        carts: updatedCarts,
       };
     case EMPTY_CART:
       localStorage.setItem("carts", JSON.stringify([]));
       return {
         ...state,
-        carts: []
+        carts: [],
       };
     case GET_TOTAL_CART:
       let { total, quantity } = state.carts.reduce(
-          (cartTotal, cartItem) => {
-            const { price, cartQuantity } = cartItem;
-            const itemTotal = price * cartQuantity;
-            cartTotal.total += itemTotal;
-            cartTotal.quantity += cartQuantity;
-            return cartTotal;
-          },
-          {
-            total: 0,
-            quantity: 0,
-          }
+        (cartTotal, cartItem) => {
+          const { price, cartQuantity } = cartItem;
+          const itemTotal = price * cartQuantity;
+          cartTotal.total += itemTotal;
+          cartTotal.quantity += cartQuantity;
+          return cartTotal;
+        },
+        {
+          total: 0,
+          quantity: 0,
+        }
       );
       return {
         ...state,
-        cartTotalQuantity:quantity,
+        cartTotalQuantity: quantity,
         cartTotalAmount: total,
-      }
+      };
     default:
       return state;
   }
-}
+};
 
 export default cartReducer;
