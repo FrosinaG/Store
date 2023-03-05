@@ -1,22 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../Images/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HomeIcon from "@mui/icons-material/Home";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
-import { SET_LOGOUT } from "../actions/actionTypes";
+import { logout, setTotal } from "../actions";
 
 const Nav = () => {
   const loggedIn = useSelector((state) => state.loginReducer.loggedIn);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch({ type: SET_LOGOUT });
+    dispatch(logout);
   };
+  const cartTotalQuantity = useSelector(
+    (state) => state.cartReducer.cartTotalQuantity
+  );
+  useEffect(() => {
+    dispatch(setTotal());
+  });
 
-  const { cartTotalQuantity } = useSelector((state) => state.cartReducer.carts);
-  
   return (
     <div className="navCont nav-mob">
       <ul className="nav justify-content-center mob-ul">

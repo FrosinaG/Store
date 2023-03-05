@@ -9,7 +9,6 @@ const initialState = {
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_LOGIN:
-      console.log(action);
       return {
         ...state,
         firstName: action.user.firstName,

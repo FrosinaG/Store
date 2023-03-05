@@ -3,19 +3,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { Button, Typography } from "@mui/material";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useEffect } from "react";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { Link, useNavigate } from "react-router-dom";
+
 import {
-  ADD_TO_CART,
-  DECREASE_CART,
-  EMPTY_CART,
-  REMOVE_FROM_CARD,
-  GET_TOTAL_CART,
-} from "../actions/actionTypes";
+  decreaseCart,
+  emptyCart,
+  increseCart,
+  removeFromCart,
+  setTotal,
+} from "../actions";
 
 const Cart = () => {
-  const carts = useSelector((state) => state.cartReducer.carts);
+  const { carts, cartTotalAmount } = useSelector((state) => state.cartReducer);
+
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const logout = () => {
@@ -23,20 +24,20 @@ const Cart = () => {
     localStorage.removeItem("token");
   };
 
-  const HandleGetTotal = (carts) => {
-    dispatch({ type: GET_TOTAL_CART, carts });
-  };
-  const HandleRemoveFromCart = (product) => {
-    dispatch({ type: REMOVE_FROM_CARD, product });
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
+    dispatch(setTotal());
   };
   const handleDecreaseCart = (product) => {
-    dispatch({ type: DECREASE_CART, product });
+    dispatch(decreaseCart(product));
+    dispatch(setTotal());
   };
   const handleIncreaseCart = (product) => {
-    dispatch({ type: ADD_TO_CART, product });
+    dispatch(increseCart(product));
+    dispatch(setTotal());
   };
   const handleClearCart = () => {
-    dispatch({ type: EMPTY_CART });
+    dispatch(emptyCart());
   };
   return (
     <div className="cartContainer">
@@ -114,7 +115,7 @@ const Cart = () => {
                     </div>
                   </div>
                   <div className="remove-btn">
-                    <Button onClick={() => HandleRemoveFromCart(cart)}>
+                    <Button onClick={() => handleRemoveFromCart(cart)}>
                       Remove
                     </Button>
                   </div>
@@ -133,7 +134,7 @@ const Cart = () => {
                 </Link>
               </div>
               <div className="totalEnd">
-                <span> Total ${carts.cartTotalAmount}</span>
+                <span> Total ${cartTotalAmount}</span>
               </div>
             </div>
           </div>

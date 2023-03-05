@@ -12,7 +12,6 @@ const Login = () => {
   const [password, setPassword] = useState();
 
   let navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   const login = (e) => {

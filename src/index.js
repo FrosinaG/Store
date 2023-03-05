@@ -10,12 +10,15 @@ import productsSaga from "./sagas/productsSaga";
 import productsReducer from "./reducers/productsReducer";
 import cartReducer from "./reducers/cartReducer";
 import loginReducer from "./reducers/loginReducer";
+import productSaga from "./sagas/productSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 const rootReducer = combineReducers({ cartReducer, productsReducer, loginReducer });
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(loginSaga);
 sagaMiddleware.run(productsSaga);
+sagaMiddleware.run(productSaga);
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
