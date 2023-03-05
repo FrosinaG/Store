@@ -3,12 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { Button } from "@mui/material";
-
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { useDispatch } from "react-redux";
-import {
-  LOGIN,
-} from "../actions/actionTypes";
+import { LOGIN } from "../actions/actionTypes";
 
 const Login = () => {
   const [username, setUsername] = useState();
@@ -18,10 +15,9 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  const login = e => {
+  const login = (e) => {
     e.preventDefault();
-    dispatch({type: LOGIN, username, password, navigate});
-
+    dispatch({ type: LOGIN, username, password, navigate });
   };
 
   const user = (e) => {

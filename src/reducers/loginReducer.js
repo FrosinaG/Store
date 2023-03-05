@@ -1,9 +1,9 @@
-import { SET_LOGIN ,SET_LOGOUT} from "../actions/actionTypes";
+import { SET_LOGIN, SET_LOGOUT } from "../actions/actionTypes";
 
 const initialState = {
-  token:localStorage.getItem('token'),
-  firstName: '',
-  lastName: '',
+  token: localStorage.getItem("token"),
+  firstName: "",
+  lastName: "",
   loggedIn: false,
 };
 const loginReducer = (state = initialState, action) => {

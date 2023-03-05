@@ -32,14 +32,13 @@ const SingleProducts = ({ article }) => {
           <Typography variant="body2">
             <b>Description :</b> {product.description}
           </Typography>
-
           <StarBorderIcon size="small" />
           <StarBorderIcon size="small" />
           <StarBorderIcon size="small" />
           <StarBorderIcon size="small" />
           <StarBorderIcon size="small" />
           <Typography variant="body2">
-            <b> {product.rating}</b>{" "}
+            <b> {product.rating}</b>
           </Typography>
         </div>
         <div className="part-img">
@@ -55,7 +54,7 @@ const SingleProducts = ({ article }) => {
           <Button variant="contained" startIcon={<SettingsBackupRestoreIcon />}>
             <Link to={"/shop"} className="link-btn">
               Back
-            </Link>{" "}
+            </Link>
           </Button>
           <Button
             variant="contained"
